@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Aditi Resource Management</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+
+    <script type='text/javascript' src="~/Content/Scripts/Lib/jquery/jquery-2.1.3.min.js"></script>
+    <script type='text/javascript' src="~/Content/Scripts/Lib/bs/bootstrap.min.js"></script>
+    <script type='text/javascript' src="~/Content/Scripts/Lib/jquery/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript" src="~/Content/Scripts/Lib/ko/knockout-3.2.0.js"></script>
+    <script type="text/javascript" src="~/Content/Scripts/core/api.js"></script>
+    <script type='text/javascript' src="~/Content/Scripts/app/util/page-settings.js"></script>
+
+    <link href="~/Content/Scripts/Lib/jquery/jquery.mCustomScrollbar.css" rel="stylesheet" />
+    <link href="~/Content/Scripts/Lib/bs/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/styles/style.css" rel="stylesheet" media="all" />
+
+
+    <script src="~/Content/Scripts/app/model/skillset.js"></script>
+    <script src="~/Content/Scripts/app/model/clientmodels.js"></script>
+    <script src="~/Content/Scripts/app/filter/filters.js"></script>
+    <script src="~/Content/Scripts/app/widget/widgets.js"></script>
+    <script src="~/Content/Scripts/app/viewmodel/index.js"></script>
+
+</head>
+<body>
+
+
+    <!-- Top Navigation starts here -->
+    <div class="navbar  rt_top_nav">
+        <div class="container-fluid">
+            <div class="">
+                <a href="#" class="brandLogo">
+                    <img src="images/logo.jpg" alt="" /></a>
+                <ul class="nav navbar-nav pull-right userLogin">
+                    <li><a href="#myModal" role="button" data-backdrop="static" data-keyboard="false" data-toggle="modal">
+                        <i class="icon-download-alt icon-white downloadIcon"></i>&nbsp;&nbsp;&nbsp;&nbsp; Import</a>
+                    </li>
+                    <li>
+                        <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop3" href="#">Me<b class="caret"></b></a>
+                        <ul aria-labelledby="drop3" role="menu" class="dropdown-menu">
+                            <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Action</a></li>
+                            <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Another action</a></li>
+                            <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Something else here</a></li>
+                            <li class="divider" role="presentation"></li>
+                            <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Top Navigation ends here -->
+    <div id="wrapper" class="dashboard set_height">
+        <div class="rt_list_container_outer">
+            <div class="rt_list_container set_height">
+                <header>
+                    <!-- buttons and search start here -->
+                    <div class="rt_list_header_tab">
+                        <ul class="nav nav-tabs" id="myTab">
+                            <li class="active"><a href="#filters">Filters</a></li>
+                            <li><a href="#results" id="widgetTabLink">Widgets</a></li>
+                        </ul>
+                    </div>
+                    <!-- buttons and search ends here -->
+                </header>
+                <section>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="filters">
+                            <div class="rt_list_items scroll_content" id="ViewListContainer">
+                                <ul data-bind="foreach: Filters">
+                                    <li>
+                                        <div class="list_name">
+                                            <a href="#">
+                                                <h2 data-bind="text: title"></h2>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <select data-bind="options: skillsets, optionsText: function (item) { if (item != null) return item.ln; }, value: selectedSkillset"></select>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <!-- list items ends here -->
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="results">
+                            <div class="rt_list_items scroll_content" id="LegendListContainer">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" data-bind="foreach: Widgets">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="collapseOne" data-bind="attr: { href: '#collapse' + $index() }">
+                                                    <span data-bind="    text: Title"></span>
+                                                   
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div data-bind="attr: { id: 'collapse' + $index() }" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body" data-bind="html:HTML">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+        <div id="RightMapPanel" class="set_height">
+            @{Html.RenderPartial("MapBase");}
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            function selectionMadeCallback()
+            {
+                $("#widgetTabLink")[0].click();
+            };
+
+            addCustomScroll($("#ViewListContainer"));
+            addCustomScroll($("#LegendListContainer"));
+
+            var vm = new ARM.ViewModel.Index(Aditi.Map,selectionMadeCallback);
+            ko.applyBindings(vm, $("#wrapper")[0]);
+            vm.init();
+
+        });
+    </script>
+</body>
+</html>

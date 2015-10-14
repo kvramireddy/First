@@ -1,0 +1,119 @@
+﻿
+<link href="~/Content/Scripts/Lib/ol/ol.css" rel="stylesheet" />
+<style type="text/css">
+    .ol-popup {
+        position: absolute;
+        background-color: white;
+        -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+        filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #cccccc;
+        bottom: 12px;
+        left: -50px;
+    }
+
+        .ol-popup:after, .ol-popup:before {
+            top: 100%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .ol-popup:after {
+            border-top-color: white;
+            border-width: 10px;
+            left: 48px;
+            margin-left: -10px;
+        }
+
+        .ol-popup:before {
+            border-top-color: #cccccc;
+            border-width: 11px;
+            left: 48px;
+            margin-left: -11px;
+        }
+
+    .ol-popup-closer {
+        text-decoration: none;
+        position: absolute;
+        top: 2px;
+        right: 8px;
+    }
+
+        .ol-popup-closer:after {
+            content: "✖";
+        }
+</style>
+<script type="text/javascript" src="~/Content/Scripts/Lib/ol/ol-debug.js"></script>
+<div style="width: 100%; height: 100%; vertical-align: central;" id="map">
+    <div id="popup" class="ol-popup">
+        <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+        <div id="popup-content"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    var Aditi = Aditi || {};
+    Aditi.MapHelper = {};
+    Aditi.MapHelper.Popup = (function ()
+    {
+        var container = document.getElementById('popup');
+        var content = document.getElementById('popup-content');
+        var closer = document.getElementById('popup-closer');
+
+        var overlay = new ol.Overlay({
+            element: container,
+            autoPan: true,
+            autoPanAnimation: {
+                duration: 250
+            }
+        });
+
+        closer.onclick = close;
+
+        function close()
+        {
+            overlay.setPosition(undefined);
+            closer.blur();
+            return false;
+        }
+        function show(contentHtml, coordinates)
+        {
+            content.innerHTML = contentHtml;
+            overlay.setPosition(coordinates);
+        }
+        return { show: show, popupOverlay: overlay,close:close };
+    })();
+    $(document).ready(function () {
+        var layers = [];
+        layers.push(new ol.layer.Tile({
+            visible: false,
+            preload: Infinity,
+            source: new ol.source.BingMaps({
+                key: 'Ak-dzM4wZjSqTlzveKz5u0d4IQ4bRzVI309GxmkgSVr1ewS6iPSrOvOKhA-CJlm3',
+                imagerySet: 'Aerial'
+            })
+        }));
+
+        var map = new ol.Map({
+            target: 'map',
+            renderer: 'canvas',
+            layers: layers,
+            overlays:[Aditi.MapHelper.Popup.popupOverlay],
+            view:
+                new ol.View({
+                    center: ol.proj.transform([0, 0], 'EPSG:4326', 'EPSG:3857'),
+                    minZoom: 2,
+                    maxZoom: 8,
+                    zoom: 2
+                })
+        });
+        map.addControl(new ol.control.ZoomSlider());
+        layers[0].setVisible(true);
+        
+        Aditi.Map = map;
+    });
+</script>

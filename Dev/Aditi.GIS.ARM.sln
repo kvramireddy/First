@@ -1,0 +1,90 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aditi.GIS.Foundation", "Aditi.GIS.Foundation\Aditi.GIS.Foundation.csproj", "{C300D2A8-76B7-4143-B358-542211EF2263}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aditi.GIS.ARM.Shared", "Aditi.GIS.ARM.Shared\Aditi.GIS.ARM.Shared.csproj", "{011C25E4-564A-45FE-B5CB-ECDED406501D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aditi.GIS.ARM.DataAccess", "Aditi.GIS.ARM.DataAccess\Aditi.GIS.ARM.DataAccess.csproj", "{3FE5DDE3-5A30-4AEA-AF45-3C6C78CFEA41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aditi.GIS.ARM.Contracts", "Aditi.GIS.ARM.Contracts\Aditi.GIS.ARM.Contracts.csproj", "{6D3C1264-3E31-4797-AF90-DE27F15E6761}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aditi.GIS.ARM.Service", "Aditi.GIS.ARM.Service\Aditi.GIS.ARM.Service.csproj", "{D0B3638F-71AA-47B4-B74C-26FE70D6C23E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aditi.GIS.ARM.ServiceHost", "Aditi.GIS.ARM.ServiceHost\Aditi.GIS.ARM.ServiceHost.csproj", "{A82C287B-A86B-4A8E-A911-25AD39B2EE13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aditi.GIS.ARM.Client", "Aditi.GIS.ARM.Client\Aditi.GIS.ARM.Client.csproj", "{73B9C764-60F1-4C63-A8C2-5193C50EB062}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A72EAC94-73BD-4280-A414-15472BB8F92E}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://saurabhkothari.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Aditi.GIS.Foundation\\Aditi.GIS.Foundation.csproj
+		SccProjectName1 = Aditi.GIS.Foundation
+		SccLocalPath1 = Aditi.GIS.Foundation
+		SccProjectUniqueName2 = Aditi.GIS.ARM.Shared\\Aditi.GIS.ARM.Shared.csproj
+		SccProjectName2 = Aditi.GIS.ARM.Shared
+		SccLocalPath2 = Aditi.GIS.ARM.Shared
+		SccProjectUniqueName3 = Aditi.GIS.ARM.DataAccess\\Aditi.GIS.ARM.DataAccess.csproj
+		SccProjectName3 = Aditi.GIS.ARM.DataAccess
+		SccLocalPath3 = Aditi.GIS.ARM.DataAccess
+		SccProjectUniqueName4 = Aditi.GIS.ARM.Contracts\\Aditi.GIS.ARM.Contracts.csproj
+		SccProjectName4 = Aditi.GIS.ARM.Contracts
+		SccLocalPath4 = Aditi.GIS.ARM.Contracts
+		SccProjectUniqueName5 = Aditi.GIS.ARM.Service\\Aditi.GIS.ARM.Service.csproj
+		SccProjectName5 = Aditi.GIS.ARM.Service
+		SccLocalPath5 = Aditi.GIS.ARM.Service
+		SccProjectUniqueName6 = Aditi.GIS.ARM.ServiceHost\\Aditi.GIS.ARM.ServiceHost.csproj
+		SccProjectName6 = Aditi.GIS.ARM.ServiceHost
+		SccLocalPath6 = Aditi.GIS.ARM.ServiceHost
+		SccProjectUniqueName7 = Aditi.GIS.ARM.Client\\Aditi.GIS.ARM.Client.csproj
+		SccProjectName7 = Aditi.GIS.ARM.Client
+		SccLocalPath7 = Aditi.GIS.ARM.Client
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C300D2A8-76B7-4143-B358-542211EF2263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C300D2A8-76B7-4143-B358-542211EF2263}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C300D2A8-76B7-4143-B358-542211EF2263}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C300D2A8-76B7-4143-B358-542211EF2263}.Release|Any CPU.Build.0 = Release|Any CPU
+		{011C25E4-564A-45FE-B5CB-ECDED406501D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{011C25E4-564A-45FE-B5CB-ECDED406501D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{011C25E4-564A-45FE-B5CB-ECDED406501D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{011C25E4-564A-45FE-B5CB-ECDED406501D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FE5DDE3-5A30-4AEA-AF45-3C6C78CFEA41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FE5DDE3-5A30-4AEA-AF45-3C6C78CFEA41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FE5DDE3-5A30-4AEA-AF45-3C6C78CFEA41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FE5DDE3-5A30-4AEA-AF45-3C6C78CFEA41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D3C1264-3E31-4797-AF90-DE27F15E6761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D3C1264-3E31-4797-AF90-DE27F15E6761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D3C1264-3E31-4797-AF90-DE27F15E6761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D3C1264-3E31-4797-AF90-DE27F15E6761}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0B3638F-71AA-47B4-B74C-26FE70D6C23E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0B3638F-71AA-47B4-B74C-26FE70D6C23E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0B3638F-71AA-47B4-B74C-26FE70D6C23E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0B3638F-71AA-47B4-B74C-26FE70D6C23E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A82C287B-A86B-4A8E-A911-25AD39B2EE13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A82C287B-A86B-4A8E-A911-25AD39B2EE13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A82C287B-A86B-4A8E-A911-25AD39B2EE13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A82C287B-A86B-4A8E-A911-25AD39B2EE13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73B9C764-60F1-4C63-A8C2-5193C50EB062}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73B9C764-60F1-4C63-A8C2-5193C50EB062}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73B9C764-60F1-4C63-A8C2-5193C50EB062}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73B9C764-60F1-4C63-A8C2-5193C50EB062}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
